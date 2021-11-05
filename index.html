@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image slider || Javascript</title>
+    <script src="https://kit.fontawesome.com/8b6c44059c.js"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            line-height: 100%;
+            justify-content: center;
+        }
+
+        .img-box {
+            width: 400px;
+            position: relative;
+        }
+
+        .img-box img {
+            width: 100%;
+        }
+
+        #left,
+        #right {
+            border: none;
+            outline: 0;
+            background: #1965f1;
+            border-radius: 100%;
+            padding: 5px 10px;
+            display: none;
+            transition: 0.3s;
+        }
+
+        .img-box:hover #left {
+            display: block;
+        }
+
+        .img-box:hover #right {
+            display: block;
+        }
+
+        button i {
+            font-size: 17px;
+            color: #fff;
+        }
+
+        #left {
+            position: absolute;
+            top: 50%;
+            left: 0px;
+        }
+
+        #right {
+            position: absolute;
+            top: 50%;
+            right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img-box">
+        <button id="left" onclick="prev()"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+        <img src="r1.png" alt="" id="img">
+        <button id="right" onclick="next()"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+    </div>
+
+
+    <script>
+        var image = document.getElementById('img');
+
+        var data = ['r1.png', 'r4.jpg', 'r5.jpg'];
+
+        var i = 1;
+
+        var next = () => {
+
+            if (i < data.length) {
+
+                image.setAttribute('src', data[i]);
+                i++;
+            }
+        }
+        var prev = () => {
+
+            if (i > data.length) {
+
+                image.setAttribute('src', data[i]);
+                i--;
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
